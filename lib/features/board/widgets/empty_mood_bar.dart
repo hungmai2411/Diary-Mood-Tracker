@@ -1,5 +1,4 @@
-import 'package:diary_app/constants/app_colors.dart';
-import 'package:diary_app/constants/app_styles.dart';
+import 'package:cs214/constants/app_styles.dart';
 import 'package:diary_app/features/board/widgets/item_mood_percent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

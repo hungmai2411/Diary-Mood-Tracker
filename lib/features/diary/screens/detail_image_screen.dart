@@ -1,6 +1,6 @@
-import 'package:diary_app/constants/app_colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:cs214/constants/app_colors.dart';
 
 class DetailImageScreen extends StatelessWidget {
   static const String routeName = '/detail_image_screen';

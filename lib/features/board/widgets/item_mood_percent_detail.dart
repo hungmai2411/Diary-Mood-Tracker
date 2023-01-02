@@ -1,5 +1,4 @@
-import 'package:diary_app/constants/app_colors.dart';
-import 'package:diary_app/constants/app_styles.dart';
+import 'package:cs214/constants/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';

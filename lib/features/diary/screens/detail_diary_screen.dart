@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:diary_app/constants/app_colors.dart';
-import 'package:diary_app/constants/app_styles.dart';
+import 'package:cs214/constants/app_colors.dart';
+import 'package:cs214/constants/app_styles.dart';
 import 'package:diary_app/constants/bean.dart';
 import 'package:diary_app/constants/utils.dart';
 import 'package:diary_app/features/diary/models/diary.dart';

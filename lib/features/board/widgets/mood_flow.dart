@@ -1,5 +1,4 @@
-import 'package:diary_app/constants/app_colors.dart';
-import 'package:diary_app/constants/app_styles.dart';
+import 'package:cs214/constants/app_styles.dart';
 import 'package:diary_app/features/board/widgets/empty_mood_flow.dart';
 import 'package:diary_app/features/diary/models/diary.dart';
 import 'package:fl_chart/fl_chart.dart';
