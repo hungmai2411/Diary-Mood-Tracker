@@ -1,6 +1,7 @@
 import 'package:diary_app/constants/app_assets.dart';
-import 'package:diary_app/constants/app_colors.dart';
-import 'package:diary_app/constants/app_styles.dart';
+import 'package:cs214/constants/app_colors.dart';
+
+import 'package:cs214/constants/app_styles.dart';
 import 'package:diary_app/constants/bean.dart';
 import 'package:diary_app/constants/utils.dart';
 import 'package:diary_app/extensions/string_ext.dart';

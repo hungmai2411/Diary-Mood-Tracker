@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:diary_app/constants/app_assets.dart';
-import 'package:diary_app/constants/app_colors.dart';
-import 'package:diary_app/constants/app_styles.dart';
+import 'package:cs214/constants/app_colors.dart';
+
+import 'package:cs214/constants/app_styles.dart';
 import 'package:diary_app/constants/global_variables.dart';
 import 'package:diary_app/constants/utils.dart';
 import 'package:diary_app/features/diary/models/diary.dart';

@@ -1,4 +1,4 @@
-import 'package:diary_app/constants/app_styles.dart';
+import 'package:cs214/constants/app_styles.dart';
 import 'package:diary_app/features/diary/models/diary.dart';
 import 'package:diary_app/features/diary/screens/detail_diary_screen.dart';
 import 'package:diary_app/features/diary/widgets/item_diary.dart';
