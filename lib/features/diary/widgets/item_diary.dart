@@ -2,12 +2,9 @@ import 'dart:convert';
 import 'package:cs214/constants/app_colors.dart';
 
 import 'package:cs214/constants/app_styles.dart';
-import 'package:diary_app/constants/bean.dart';
-import 'package:diary_app/constants/utils.dart';
-import 'package:diary_app/features/diary/models/diary.dart';
-import 'package:diary_app/features/setting/models/setting.dart';
-import 'package:diary_app/providers/setting_provider.dart';
-import 'package:diary_app/widgets/box.dart';
+import 'package:cs214/constants/utils.dart';
+import 'package:cs214/features/diary/models/diary.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart' as quill;
 import 'package:intl/intl.dart';

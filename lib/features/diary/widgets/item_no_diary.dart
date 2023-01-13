@@ -1,5 +1,5 @@
 import 'package:cs214/constants/app_styles.dart';
-import 'package:diary_app/widgets/box.dart';
+import 'package:cs214/widgets/box.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

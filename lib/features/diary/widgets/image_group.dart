@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:diary_app/features/diary/screens/detail_image_screen.dart';
+import 'package:cs214/features/diary/screens/detail_image_screen.dart';
 import 'package:flutter/material.dart';
 
 class ImageGroup extends StatelessWidget {
