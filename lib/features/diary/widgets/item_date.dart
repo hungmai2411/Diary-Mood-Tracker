@@ -1,8 +1,6 @@
-import 'package:diary_app/constants/app_assets.dart';
-
 import 'package:cs214/constants/app_styles.dart';
-import 'package:diary_app/features/board/widgets/mood_flow.dart';
-import 'package:diary_app/features/diary/widgets/smile_painter.dart';
+import 'package:cs214/features/diary/widgets/smile_painter.dart';
+
 import 'package:flutter/material.dart';
 import 'package:cs214/constants/app_colors.dart';
 

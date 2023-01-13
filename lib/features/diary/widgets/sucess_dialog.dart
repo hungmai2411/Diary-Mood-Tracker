@@ -1,7 +1,6 @@
-import 'package:diary_app/constants/app_assets.dart';
-
+import 'package:cs214/constants/app_assets.dart';
 import 'package:cs214/constants/app_styles.dart';
-import 'package:diary_app/widgets/app_button.dart';
+import 'package:cs214/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:cs214/constants/app_colors.dart';

@@ -1,5 +1,5 @@
-import 'package:diary_app/features/diary/widgets/item_add_image.dart';
-import 'package:diary_app/features/diary/widgets/item_image.dart';
+import 'package:cs214/features/diary/widgets/item_add_image.dart';
+import 'package:cs214/features/diary/widgets/item_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
