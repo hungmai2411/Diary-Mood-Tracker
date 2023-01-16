@@ -2,15 +2,16 @@ import 'dart:convert';
 
 import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
-import 'package:diary_app/constants/bean.dart';
-import 'package:diary_app/constants/utils.dart';
-import 'package:diary_app/features/diary/models/diary.dart';
-import 'package:diary_app/features/diary/screens/edit_diary_screen.dart';
-import 'package:diary_app/features/diary/widgets/delete_dialog.dart';
-import 'package:diary_app/features/diary/widgets/image_group.dart';
-import 'package:diary_app/features/setting/models/setting.dart';
-import 'package:diary_app/providers/setting_provider.dart';
-import 'package:diary_app/widgets/box.dart';
+import 'package:cs214/constants/bean.dart';
+import 'package:cs214/constants/utils.dart';
+import 'package:cs214/features/diary/models/diary.dart';
+import 'package:cs214/features/diary/screens/edit_diary_screen.dart';
+import 'package:cs214/features/diary/widgets/delete_dialog.dart';
+import 'package:cs214/features/diary/widgets/image_group.dart';
+import 'package:cs214/features/setting/models/setting.dart';
+import 'package:cs214/providers/setting_provider.dart';
+import 'package:cs214/widgets/box.dart';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';

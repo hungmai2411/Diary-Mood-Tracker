@@ -3,6 +3,7 @@ import 'package:cs214/features/diary/screens/add_diary_screen.dart';
 import 'package:cs214/features/diary/screens/diary_screen.dart';
 import 'package:cs214/providers/bottom_navigation_provider.dart';
 import 'package:cs214/providers/date_provider.dart';
+import 'package:cs214/providers/setting_provider.dart';
 import 'package:cs214/services/db_helpers.dart';
 import 'package:cs214/widgets/tab_widget.dart';
 import 'package:flutter/material.dart';

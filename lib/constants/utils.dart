@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
+import 'package:cs214/providers/setting_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'dart:ui' as ui;

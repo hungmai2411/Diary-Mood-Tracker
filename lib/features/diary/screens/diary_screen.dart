@@ -1,22 +1,21 @@
-import 'package:diary_app/constants/app_assets.dart';
+import 'package:cs214/constants/app_assets.dart';
 import 'package:cs214/constants/app_colors.dart';
-
 import 'package:cs214/constants/app_styles.dart';
-import 'package:diary_app/constants/bean.dart';
-import 'package:diary_app/constants/utils.dart';
-import 'package:diary_app/extensions/string_ext.dart';
-import 'package:diary_app/features/diary/models/diary.dart';
-import 'package:diary_app/features/diary/screens/add_diary_screen.dart';
-import 'package:diary_app/features/diary/screens/detail_diary_screen.dart';
-import 'package:diary_app/features/diary/screens/share_screen.dart';
-import 'package:diary_app/features/diary/widgets/item_date.dart';
-import 'package:diary_app/features/diary/widgets/item_diary.dart';
-import 'package:diary_app/features/diary/widgets/item_no_diary.dart';
-import 'package:diary_app/features/setting/models/setting.dart';
-import 'package:diary_app/providers/date_provider.dart';
-import 'package:diary_app/providers/diary_provider.dart';
-import 'package:diary_app/providers/setting_provider.dart';
-import 'package:diary_app/widgets/widget_to_image.dart';
+import 'package:cs214/constants/bean.dart';
+import 'package:cs214/constants/utils.dart';
+import 'package:cs214/extensions/string_ext.dart';
+import 'package:cs214/features/diary/models/diary.dart';
+import 'package:cs214/features/diary/screens/add_diary_screen.dart';
+import 'package:cs214/features/diary/screens/detail_diary_screen.dart';
+import 'package:cs214/features/diary/screens/share_screen.dart';
+import 'package:cs214/features/diary/widgets/item_date.dart';
+import 'package:cs214/features/diary/widgets/item_diary.dart';
+import 'package:cs214/features/diary/widgets/item_no_diary.dart';
+import 'package:cs214/features/setting/models/setting.dart';
+import 'package:cs214/providers/date_provider.dart';
+import 'package:cs214/providers/diary_provider.dart';
+import 'package:cs214/providers/setting_provider.dart';
+import 'package:cs214/widgets/widget_to_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -43,6 +42,8 @@ class _DiaryScreenState extends State<DiaryScreen> {
   late Setting setting;
   late Bean bean;
   Map<DateTime, List<Diary>> eventsMood = {};
+
+  CalendarFormat _calendarFormat = CalendarFormat.month;
 
   @override
   void initState() {
@@ -146,195 +147,152 @@ class _DiaryScreenState extends State<DiaryScreen> {
     print('point of diary screen: ${setting.point}');
     return Scaffold(
       key: _scaffoldKey,
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            backgroundColor: AppColors.backgroundColor,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  AppAssets.iconCoin,
-                  width: 20,
-                  fit: BoxFit.cover,
-                ),
-                const SizedBox(width: 6),
-                // coin
-                Text(
-                  setting.point.toString(),
-                  style: AppStyles.semibold.copyWith(
-                    fontSize: 16,
-                    color: AppColors.textPrimaryColor,
-                  ),
-                ),
-                const Spacer(),
-                // datetime
-                GestureDetector(
-                  onTap: () => chooseDate(locale),
-                  child: Row(
-                    children: [
-                      WidgetToImage(
-                        builder: (key) {
-                          key1 = key;
-                          return Text(
-                            DateFormat('MMM dd, yyyy', locale)
-                                .format(dateProvider.selectedDay),
-                            style: AppStyles.medium.copyWith(
-                              fontSize: 18,
-                              color: AppColors.textPrimaryColor,
-                            ),
-                          );
-                        },
-                      ),
-                      const SizedBox(width: 6),
-                      // choose time
-                      Icon(
-                        FontAwesomeIcons.angleDown,
-                        size: 18,
-                        color: AppColors.textPrimaryColor,
-                      ),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-                IconButton(
-                  onPressed: captureImage,
-                  icon: Icon(
-                    Icons.ios_share,
-                    color: AppColors.textPrimaryColor,
-                  ),
-                ),
-              ],
+      appBar: AppBar(
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        backgroundColor: AppColors.backgroundColor,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              AppAssets.iconCoin,
+              width: 20,
+              fit: BoxFit.cover,
             ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: MediaQuery.of(context).size.width,
-              child: WidgetToImage(
-                builder: (key) {
-                  key2 = key;
-                  return TableCalendar(
-                    startingDayOfWeek:
-                        setting.startingDayOfWeek!.getStartingDayOfWeek,
-                    shouldFillViewport: true,
-                    //eventLoader: getEventsForDays,
-                    calendarBuilders: CalendarBuilders(
-                      dowBuilder: ((context, day) {
-                        final text = DateFormat.E(locale).format(day);
-
-                        return Center(
-                          child: Text(
-                            text,
-                            style: AppStyles.regular.copyWith(
-                              color: AppColors.textPrimaryColor,
-                            ),
-                          ),
-                        );
-                      }),
-                      defaultBuilder: (context1, datetime, events) {
-                        return GestureDetector(
-                          onTap: () {
-                            if (!isSameDay(
-                                    datetime, dateProvider.selectedDay) &&
-                                datetime.compareTo(DateTime.now()) == -1) {
-                              dateProvider.setDay(datetime);
-                            } else {
-                              showSnackBar(
-                                context,
-                                AppLocalizations.of(context)!
-                                    .youCannotRecordThefuture,
-                              );
-                            }
-                          },
-                          child: ItemDate(
-                            date: datetime.day.toString(),
-                            img: eventsMood[datetime] != null
-                                ? bean.beans[5 -
-                                    eventsMood[datetime]![0].getIndex().round()]
-                                : null,
-                            color: AppColors.textPrimaryColor,
-                          ),
-                        );
-                      },
-                      todayBuilder: (context, datetime, events) {
-                        return GestureDetector(
-                          onTap: () {
-                            dateProvider.setDay(datetime);
-                          },
-                          child: ItemDate(
-                            date: datetime.day.toString(),
-                            color: AppColors.todayColor,
-                            img: eventsMood[datetime] != null
-                                ? bean.beans[5 -
-                                    eventsMood[datetime]![0].getIndex().round()]
-                                : null,
-                          ),
-                        );
-                      },
-                      selectedBuilder: (context, datetime, events) {
-                        return ItemDate(
-                          date: datetime.day.toString(),
-                          color: AppColors.primaryColor,
-                          img: eventsMood[datetime] != null
-                              ? bean.beans[5 -
-                                  eventsMood[datetime]![0].getIndex().round()]
-                              : null,
-                          isSelected: true,
-                        );
-                      },
-                    ),
-                    headerVisible: false,
-                    firstDay: kFirstDay,
-                    lastDay: kLastDay,
-                    calendarFormat: CalendarFormat.month,
-                    focusedDay: dateProvider.focusedDay,
-                    onPageChanged: (focusedDay) {
-                      dateProvider.setDay(focusedDay);
-                    },
-                    calendarStyle: const CalendarStyle(
-                      outsideDaysVisible: false,
-                    ),
-                    locale: locale,
-                    selectedDayPredicate: (day) =>
-                        isSameDay(dateProvider.selectedDay, day),
-                  );
-                },
+            const SizedBox(width: 6),
+            // coin
+            Text(
+              setting.point.toString(),
+              style: AppStyles.semibold.copyWith(
+                fontSize: 16,
+                color: AppColors.textPrimaryColor,
               ),
             ),
+            const Spacer(flex: 3),
+            // datetime
+            GestureDetector(
+              onTap: () => chooseDate(locale),
+              child: Row(
+                children: [
+                  WidgetToImage(
+                    builder: (key) {
+                      key1 = key;
+                      return Text(
+                        DateFormat('MMM dd, yyyy', locale)
+                            .format(dateProvider.selectedDay),
+                        style: AppStyles.medium.copyWith(
+                          fontSize: 18,
+                          color: AppColors.textPrimaryColor,
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 6),
+                  // choose time
+                  Icon(
+                    FontAwesomeIcons.angleDown,
+                    size: 18,
+                    color: AppColors.textPrimaryColor,
+                  ),
+                ],
+              ),
+            ),
+            const Spacer(flex: 2),
+            IconButton(
+              onPressed: captureImage,
+              icon: Icon(
+                Icons.ios_share,
+                color: AppColors.textPrimaryColor,
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: ListView(
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics(),
+        ),
+        children: [
+          WidgetToImage(
+            builder: (key) {
+              key2 = key;
+              return TableCalendar(
+                rowHeight: 80,
+                calendarFormat: _calendarFormat,
+                startingDayOfWeek:
+                    setting.startingDayOfWeek!.getStartingDayOfWeek,
+                onFormatChanged: (format) {
+                  if (_calendarFormat != format) {
+                    setState(() {
+                      _calendarFormat = format;
+                    });
+                  }
+                },
+                calendarBuilders: CalendarBuilders(
+                  dowBuilder: ((context, day) {
+                    final text = DateFormat.E(locale).format(day);
+
+                    return Center(
+                      child: Text(
+                        text,
+                        style: AppStyles.regular.copyWith(
+                          color: AppColors.textPrimaryColor,
+                        ),
+                      ),
+                    );
+                  }),
+                  prioritizedBuilder: (context, datetime, focusedDay) {
+                    return GestureDetector(
+                      onTap: () {
+                        if (datetime.compareTo(DateTime.now()) == -1) {
+                          dateProvider.setDay(datetime);
+                        } else {
+                          showSnackBar(
+                            context,
+                            AppLocalizations.of(context)!
+                                .youCannotRecordThefuture,
+                          );
+                        }
+                      },
+                      child: ItemDate(
+                        date: datetime.day.toString(),
+                        img: eventsMood[datetime] != null
+                            ? bean.beans[
+                                5 - eventsMood[datetime]![0].getIndex().round()]
+                            : null,
+                        color: AppColors.textPrimaryColor,
+                        isSelected:
+                            isSameDay(datetime, dateProvider.selectedDay),
+                      ),
+                    );
+                  },
+                ),
+                headerVisible: false,
+                firstDay: kFirstDay,
+                lastDay: kLastDay,
+                focusedDay: dateProvider.focusedDay,
+                onPageChanged: (focusedDay) {
+                  dateProvider.setDay(focusedDay);
+                },
+                calendarStyle: const CalendarStyle(
+                  outsideDaysVisible: false,
+                ),
+                locale: locale,
+                selectedDayPredicate: (day) =>
+                    isSameDay(dateProvider.selectedDay, day),
+              );
+            },
           ),
-          SliverPadding(
+          Padding(
             padding: const EdgeInsets.symmetric(
               vertical: 10,
             ),
-            sliver: eventsMood[dateProvider.selectedDay] == null
-                ? const SliverToBoxAdapter(
-                    child: ItemNoDiary(),
-                  )
-                : SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (
-                        BuildContext context,
-                        int index,
-                      ) {
-                        if (index ==
-                            eventsMood[dateProvider.selectedDay]!.length) {
-                          return Container(
-                            height: 100,
-                          );
-                        }
-                        Diary diary =
-                            eventsMood[dateProvider.selectedDay]![index];
-
-                        return GestureDetector(
-                          onTap: () => navigateToDetailDiaryScreen(diary),
-                          child: ItemDiary(diary: diary),
-                        );
-                      },
-                      childCount:
-                          eventsMood[dateProvider.selectedDay]!.length + 1,
-                    ),
+            child: eventsMood[dateProvider.selectedDay] == null
+                ? const ItemNoDiary()
+                : Column(
+                    children: eventsMood[dateProvider.selectedDay]!
+                        .map((e) => ItemDiary(diary: e))
+                        .toList(),
                   ),
           ),
         ],
