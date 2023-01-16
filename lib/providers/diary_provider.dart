@@ -1,4 +1,5 @@
 import 'package:cs214/features/diary/models/diary.dart';
+import 'package:cs214/services/db_helpers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,5 @@
 import 'package:cs214/features/diary/models/diary.dart';
+import 'package:cs214/features/setting/models/setting.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class DbHelper {
@@ -28,19 +29,19 @@ class DbHelper {
   //   return category;
   // }
 
-  // Future<void> delete(Box box, int key) async => await box.delete(key);
+  Future<void> delete(Box box, int key) async => await box.delete(key);
 
-  // Future<void> editDiary(Box box, int key, Diary diary) async =>
-  //     await box.put(key, diary);
+  Future<void> editDiary(Box box, int key, Diary diary) async =>
+      await box.put(key, diary);
 
   // Future<void> editCategory(Box box, int key, Category category) async =>
   //     await box.put(key, category);
 
-  // Future<void> addSetting(Box box, Setting setting) async =>
-  //     await box.put('setting', setting);
+  Future<void> addSetting(Box box, Setting setting) async =>
+      await box.put('setting', setting);
 
-  // Setting getSetting(Box box) => box.get(
-  //       'setting',
-  //       defaultValue: Setting(),
-  //     );
+  Setting getSetting(Box box) => box.get(
+        'setting',
+        defaultValue: Setting(),
+      );
 }
