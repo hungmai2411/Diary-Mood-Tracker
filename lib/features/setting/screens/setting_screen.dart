@@ -1,6 +1,14 @@
 import 'package:cs214/constants/app_colors.dart';
+import 'package:cs214/constants/app_styles.dart';
+import 'package:cs214/extensions/string_ext.dart';
 import 'package:cs214/features/setting/models/setting.dart';
+import 'package:cs214/features/setting/screens/language_screen.dart';
+import 'package:cs214/features/setting/screens/passcode_screen.dart';
+import 'package:cs214/features/setting/screens/select_theme_screen.dart';
+import 'package:cs214/features/setting/screens/start_of_the_week_screen.dart';
 import 'package:cs214/providers/setting_provider.dart';
+import 'package:cs214/services/notification_services.dart';
+import 'package:cs214/widgets/box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -113,10 +121,10 @@ class _SettingScreenState extends State<SettingScreen> {
     );
   }
 
-  backup() async {
-    GoogleDrive googleDrive = GoogleDrive();
-    //await googleDrive.uploadFileToGoogleDrive(file);
-  }
+  // backup() async {
+  //   GoogleDrive googleDrive = GoogleDrive();
+  //   //await googleDrive.uploadFileToGoogleDrive(file);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -213,7 +221,7 @@ class _SettingScreenState extends State<SettingScreen> {
             const SizedBox(height: 15),
             // backup
             GestureDetector(
-              onTap: backup,
+              onTap: () {},
               child: Box(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 15,
