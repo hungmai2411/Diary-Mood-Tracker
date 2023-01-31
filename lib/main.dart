@@ -1,115 +1,148 @@
+import 'package:cs214/constants/app_colors.dart';
+import 'package:cs214/constants/bean.dart';
+import 'package:cs214/features/category/models/category.dart';
+import 'package:cs214/features/diary/models/diary.dart';
+import 'package:cs214/features/diary/screens/enter_pin_screen.dart';
+import 'package:cs214/features/setting/models/setting.dart';
+import 'package:cs214/l10n/l10n.dart';
+import 'package:cs214/my_app.dart';
+import 'package:cs214/providers/bottom_navigation_provider.dart';
+import 'package:cs214/providers/category_provider.dart';
+import 'package:cs214/providers/date_provider.dart';
+import 'package:cs214/providers/diary_provider.dart';
+import 'package:cs214/providers/setting_provider.dart';
+import 'package:cs214/route.dart';
+import 'package:cs214/services/db_helpers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:month_year_picker/month_year_picker.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  Hive.registerAdapter(DiaryAdapter());
+  Hive.registerAdapter(SettingAdapter());
+  Hive.registerAdapter(BeanAdapter());
+  Hive.registerAdapter(CategoryAdapter());
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+  final DbHelper dbHelper = DbHelper();
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  SettingProvider settingProvider = SettingProvider();
+  DiaryProvider diaryProvider = DiaryProvider();
+  CategoryProvider categoryProvider = CategoryProvider();
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+  await getSetting(dbHelper, settingProvider);
+  await getDiaries(dbHelper, diaryProvider);
+  await getCategories(dbHelper, categoryProvider);
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<BottomNavigationProvider>(
+          create: (_) => BottomNavigationProvider(),
         ),
+        ChangeNotifierProvider<DiaryProvider>(
+          create: (_) => diaryProvider,
+        ),
+        ChangeNotifierProvider<SettingProvider>(
+          create: (_) => settingProvider,
+        ),
+        ChangeNotifierProvider<DateProvider>(
+          create: (_) => DateProvider(),
+        ),
+        ChangeNotifierProvider<CategoryProvider>(
+          create: (_) => categoryProvider,
+        ),
+      ],
+      child: Consumer<SettingProvider>(
+        builder: (
+          context,
+          model,
+          child,
+        ) {
+          Setting setting = model.setting;
+          print('rebuild main: ${setting.hasPasscode}');
+
+          return MaterialApp(
+            theme: ThemeData(
+              scaffoldBackgroundColor: AppColors.backgroundColor,
+            ),
+            locale: setting.language == 'English'
+                ? const Locale('en')
+                : const Locale('vi'),
+            supportedLocales: L10n.all,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              MonthYearPickerLocalizations.delegate,
+            ],
+            // initialRoute: !setting.hasPasscode
+            //     ? MyApp.routeName
+            //     : EnterPinScreen.routeName,
+            routes: routes,
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: generateRoutes,
+            home: setting.hasPasscode && setting.passcode!.isNotEmpty
+                ? const EnterPinScreen()
+                : const MyApp(),
+          );
+        },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    ),
+  );
+}
+
+Future<void> getDiaries(
+  DbHelper dbHelper,
+  DiaryProvider diaryProvider,
+) async {
+  final box = await dbHelper.openBox("diaries");
+  List<Diary> diaries = dbHelper.getDiaries(box);
+  diaryProvider.setDiaries(diaries);
+}
+
+Future<void> getCategories(
+  DbHelper dbHelper,
+  CategoryProvider categoryProvider,
+) async {
+  final box = await dbHelper.openBox("categories");
+  List<Category> categories = dbHelper.getCategories(box);
+  categoryProvider.setCategories(categories);
+}
+
+Future<void> getSetting(
+  DbHelper dbHelper,
+  SettingProvider settingProvider,
+) async {
+  final boxSetting = await dbHelper.openBox("settings");
+
+  Setting setting = dbHelper.getSetting(boxSetting);
+  String background = setting.background;
+
+  if (background == 'System mode') {
+    var brightness = SchedulerBinding.instance.window.platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
+
+    background = isDarkMode ? 'Dark mode' : 'Light mode';
+  }
+
+  AppColors.changeTheme(background);
+
+  if (setting.language == null) {
+    setting = setting.copyWith(
+      language: 'English',
     );
   }
+  if (setting.startingDayOfWeek == null) {
+    setting = setting.copyWith(startingDayOfWeek: 'Sunday');
+  }
+
+  settingProvider.setSetting(setting);
 }
