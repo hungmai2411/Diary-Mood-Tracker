@@ -7,6 +7,7 @@ import 'package:cs214/features/setting/screens/theme_store_screen.dart';
 import 'package:cs214/features/setting/widgets/item_background.dart';
 import 'package:cs214/features/setting/widgets/item_bean.dart';
 import 'package:cs214/providers/setting_provider.dart';
+import 'package:cs214/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';

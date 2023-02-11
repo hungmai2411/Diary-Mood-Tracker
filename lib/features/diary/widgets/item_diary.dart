@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:cs214/constants/app_colors.dart';
 
+import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
 import 'package:cs214/constants/bean.dart';
 import 'package:cs214/constants/utils.dart';
@@ -8,7 +8,6 @@ import 'package:cs214/features/diary/models/diary.dart';
 import 'package:cs214/features/setting/models/setting.dart';
 import 'package:cs214/providers/setting_provider.dart';
 import 'package:cs214/widgets/box.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart' as quill;
 import 'package:intl/intl.dart';
@@ -118,6 +117,8 @@ class ItemDiary extends StatelessWidget {
                                   e,
                                   fit: BoxFit.cover,
                                   width: 80,
+                                  cacheWidth: 240,
+                                  cacheHeight: 240,
                                   height: 80,
                                 ),
                               ),

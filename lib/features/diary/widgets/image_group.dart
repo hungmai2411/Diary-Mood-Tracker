@@ -2,6 +2,8 @@ import 'dart:typed_data';
 
 import 'package:cs214/features/diary/screens/detail_image_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 
 class ImageGroup extends StatelessWidget {
   final List<Uint8List> images;
@@ -35,6 +37,8 @@ class ImageGroup extends StatelessWidget {
             child: Image.memory(
               images[index],
               fit: BoxFit.cover,
+              cacheWidth: 342,
+              cacheHeight: 342,
             ),
           ),
         );

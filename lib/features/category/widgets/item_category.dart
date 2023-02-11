@@ -1,7 +1,7 @@
-import 'package:diary_app/constants/app_colors.dart';
-import 'package:diary_app/constants/app_styles.dart';
-import 'package:diary_app/features/category/models/category.dart';
-import 'package:diary_app/features/category/screens/detail_category_screen.dart';
+import 'package:cs214/constants/app_colors.dart';
+import 'package:cs214/constants/app_styles.dart';
+import 'package:cs214/features/category/models/category.dart';
+import 'package:cs214/features/category/screens/detail_category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 

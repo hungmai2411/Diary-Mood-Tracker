@@ -1,7 +1,7 @@
-import 'package:diary_app/features/category/models/category.dart';
-import 'package:diary_app/features/category/screens/detail_category_screen.dart';
-import 'package:diary_app/features/category/widgets/item_add_category.dart';
-import 'package:diary_app/features/category/widgets/item_category.dart';
+import 'package:cs214/features/category/models/category.dart';
+import 'package:cs214/features/category/screens/detail_category_screen.dart';
+import 'package:cs214/features/category/widgets/item_add_category.dart';
+import 'package:cs214/features/category/widgets/item_category.dart';
 import 'package:flutter/material.dart';
 
 class CategoryUploadGroup extends StatefulWidget {

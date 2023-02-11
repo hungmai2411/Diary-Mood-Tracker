@@ -1,7 +1,9 @@
+import 'package:cs214/constants/app_assets.dart';
 import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
 import 'package:cs214/constants/bean.dart';
 import 'package:cs214/constants/global_variables.dart';
+import 'package:cs214/features/setting/models/setting.dart';
 import 'package:cs214/features/setting/widgets/item_theme_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

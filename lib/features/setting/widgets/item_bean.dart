@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:cs214/constants/app_assets.dart';
 import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/bean.dart';
 import 'package:cs214/widgets/box.dart';

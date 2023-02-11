@@ -1,15 +1,17 @@
+import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
-import 'package:diary_app/features/board/widgets/mood_bar.dart';
-import 'package:diary_app/features/board/widgets/mood_flow.dart';
-import 'package:diary_app/features/diary/models/diary.dart';
-import 'package:diary_app/features/diary/screens/detail_diary_screen.dart';
-import 'package:diary_app/features/diary/widgets/item_diary.dart';
-import 'package:diary_app/features/diary/widgets/item_no_diary.dart';
-import 'package:diary_app/features/setting/models/setting.dart';
-import 'package:diary_app/features/board/screens/time_line_screen.dart';
-import 'package:diary_app/providers/date_provider.dart';
-import 'package:diary_app/providers/diary_provider.dart';
-import 'package:diary_app/providers/setting_provider.dart';
+import 'package:cs214/constants/bean.dart';
+import 'package:cs214/features/board/widgets/mood_bar.dart';
+import 'package:cs214/features/board/widgets/mood_flow.dart';
+import 'package:cs214/features/diary/models/diary.dart';
+import 'package:cs214/features/diary/screens/detail_diary_screen.dart';
+import 'package:cs214/features/diary/widgets/item_diary.dart';
+import 'package:cs214/features/diary/widgets/item_no_diary.dart';
+import 'package:cs214/features/setting/models/setting.dart';
+import 'package:cs214/features/board/screens/time_line_screen.dart';
+import 'package:cs214/providers/date_provider.dart';
+import 'package:cs214/providers/diary_provider.dart';
+import 'package:cs214/providers/setting_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -81,6 +83,7 @@ class _BoardScreenState extends State<BoardScreen> {
   Widget build(BuildContext context) {
     final SettingProvider settingProvider = context.read<SettingProvider>();
     Setting setting = settingProvider.setting;
+    Bean bean = setting.bean;
     String locale = setting.language == 'English' ? 'en' : 'vi';
     final DiaryProvider diaryProvider = context.read<DiaryProvider>();
     List<Diary> diaries = diaryProvider.diaries;
@@ -190,7 +193,7 @@ class _BoardScreenState extends State<BoardScreen> {
                 : SliverList(
                     delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
-                        if (index == diaries.length) {
+                        if (index == diariesMonth.length) {
                           return Container(height: 100);
                         }
                         Diary diary = diariesMonth[index];

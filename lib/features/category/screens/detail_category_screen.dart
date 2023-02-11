@@ -1,17 +1,15 @@
 import 'dart:convert';
 
-import 'package:diary_app/constants/app_colors.dart';
-import 'package:diary_app/constants/app_styles.dart';
-import 'package:diary_app/constants/utils.dart';
-import 'package:diary_app/features/category/models/category.dart';
-import 'package:diary_app/features/category/screens/edit_category_screen.dart';
-import 'package:diary_app/features/category/widgets/delete_category_dialog.dart';
-import 'package:diary_app/features/diary/widgets/delete_dialog.dart';
+import 'package:cs214/constants/app_colors.dart';
+import 'package:cs214/constants/app_styles.dart';
+import 'package:cs214/constants/utils.dart';
+import 'package:cs214/features/category/models/category.dart';
+import 'package:cs214/features/category/screens/edit_category_screen.dart';
+import 'package:cs214/features/category/widgets/delete_category_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart' as quill;
 import 'package:flutter_quill_extensions/flutter_quill_extensions.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:path/path.dart' as path;
 
 class DetailCategoryScreen extends StatefulWidget {
   const DetailCategoryScreen({

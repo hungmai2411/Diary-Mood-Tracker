@@ -1,8 +1,8 @@
+import 'package:cs214/constants/app_colors.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:cs214/constants/app_colors.dart';
 
 class ItemAddImage extends StatelessWidget {
   final int index;

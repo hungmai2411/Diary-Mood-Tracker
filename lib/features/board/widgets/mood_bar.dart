@@ -1,10 +1,11 @@
+import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
-import 'package:diary_app/constants/bean.dart';
-import 'package:diary_app/features/board/widgets/empty_mood_bar.dart';
-import 'package:diary_app/features/board/widgets/item_mood_percent.dart';
-import 'package:diary_app/features/board/widgets/item_mood_percent_detail.dart';
-import 'package:diary_app/features/diary/models/diary.dart';
-import 'package:diary_app/providers/setting_provider.dart';
+import 'package:cs214/constants/bean.dart';
+import 'package:cs214/features/board/widgets/empty_mood_bar.dart';
+import 'package:cs214/features/board/widgets/item_mood_percent.dart';
+import 'package:cs214/features/board/widgets/item_mood_percent_detail.dart';
+import 'package:cs214/features/diary/models/diary.dart';
+import 'package:cs214/providers/setting_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -117,7 +118,7 @@ class MoodBar extends StatelessWidget {
     int totalMood = diariesMonth.length;
 
     for (Diary diary in diariesMonth) {
-      double index = diary.mood.getIndex();
+      double index = diary.getIndex();
 
       if (index == 1) {
         mood5++;

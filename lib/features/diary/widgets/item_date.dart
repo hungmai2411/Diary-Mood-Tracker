@@ -1,8 +1,9 @@
-import 'package:cs214/constants/app_styles.dart';
-import 'package:cs214/features/diary/widgets/smile_painter.dart';
-
-import 'package:flutter/material.dart';
+import 'package:cs214/constants/app_assets.dart';
 import 'package:cs214/constants/app_colors.dart';
+import 'package:cs214/constants/app_styles.dart';
+import 'package:cs214/features/board/widgets/mood_flow.dart';
+import 'package:cs214/features/diary/widgets/smile_painter.dart';
+import 'package:flutter/material.dart';
 
 class ItemDate extends StatelessWidget {
   final String date;
@@ -21,20 +22,24 @@ class ItemDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10.0),
+      padding: const EdgeInsets.only(top: 8.0),
       child: Column(
         children: [
-          Text(
-            date,
-            style: isSelected!
-                ? AppStyles.semibold.copyWith(
-                    color: color,
-                    fontSize: 14,
-                  )
-                : AppStyles.medium.copyWith(
-                    color: color,
-                    fontSize: 14,
-                  ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 1),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: isSelected!
+                  ? AppColors.selectedColor
+                  : AppColors.backgroundColor,
+            ),
+            child: Text(
+              date,
+              style: AppStyles.regular.copyWith(
+                color: isSelected! ? AppColors.backgroundColor : color,
+                fontSize: 12,
+              ),
+            ),
           ),
           const SizedBox(height: 2),
           img != null
@@ -42,32 +47,34 @@ class ItemDate extends StatelessWidget {
                   child: Image.asset(
                     img!,
                     fit: BoxFit.contain,
-                    width: 50,
-                    height: 50,
                   ),
                 )
-              : Expanded(
-                  child: SizedBox(
-                    height: 43,
-                    width: 43,
-                    child: Stack(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColors.unNote,
-                          ),
-                        ),
-                        CustomPaint(
-                          painter: SmilePainter(),
-                          child: Container(),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
+              : _buildItemNoRecord(),
         ],
       ),
     );
   }
+}
+
+Widget _buildItemNoRecord() {
+  return Expanded(
+    child: SizedBox(
+      height: 43,
+      width: 43,
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: AppColors.unNote,
+            ),
+          ),
+          CustomPaint(
+            painter: SmilePainter(),
+            child: Container(),
+          )
+        ],
+      ),
+    ),
+  );
 }

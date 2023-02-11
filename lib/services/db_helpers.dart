@@ -1,7 +1,8 @@
-import 'package:cs214/features/category/models/category.dart';
 import 'package:cs214/features/diary/models/diary.dart';
 import 'package:cs214/features/setting/models/setting.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+import '../features/category/models/category.dart';
 
 class DbHelper {
   Future<Box> openBox(String boxName) async {

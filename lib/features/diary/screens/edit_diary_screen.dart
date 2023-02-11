@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:cs214/constants/app_assets.dart';
 import 'package:cs214/constants/app_colors.dart';
-
 import 'package:cs214/constants/app_styles.dart';
 import 'package:cs214/constants/global_variables.dart';
 import 'package:cs214/constants/utils.dart';
@@ -13,7 +13,6 @@ import 'package:cs214/my_app.dart';
 import 'package:cs214/providers/diary_provider.dart';
 import 'package:cs214/providers/setting_provider.dart';
 import 'package:cs214/widgets/box.dart';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
@@ -107,7 +106,7 @@ class _EditDiaryScreenState extends State<EditDiaryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.backgroundColor,
         elevation: 0,
         leading: IconButton(
           onPressed: popScreen,

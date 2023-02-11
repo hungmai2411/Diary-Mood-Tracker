@@ -1,6 +1,6 @@
-import 'package:diary_app/constants/app_colors.dart';
-import 'package:diary_app/constants/app_styles.dart';
-import 'package:diary_app/features/category/screens/create_category_screen.dart';
+import 'package:cs214/constants/app_colors.dart';
+import 'package:cs214/constants/app_styles.dart';
+import 'package:cs214/features/category/screens/create_category_screen.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

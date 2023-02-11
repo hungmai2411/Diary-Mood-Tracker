@@ -8,7 +8,6 @@ import 'package:cs214/features/diary/screens/add_diary_screen.dart';
 import 'package:cs214/features/diary/screens/detail_diary_screen.dart';
 import 'package:cs214/features/diary/screens/detail_image_screen.dart';
 import 'package:cs214/features/diary/screens/diary_screen.dart';
-import 'package:cs214/features/diary/screens/document_screen.dart';
 import 'package:cs214/features/diary/screens/edit_diary_screen.dart';
 import 'package:cs214/features/diary/screens/enter_pin_screen.dart';
 import 'package:cs214/features/diary/screens/share_screen.dart';
@@ -72,11 +71,7 @@ MaterialPageRoute<dynamic>? generateRoutes(RouteSettings settings) {
           diary: diary,
         ),
       );
-    case DocumentScreen.routeName:
-      return MaterialPageRoute<String>(
-        settings: settings,
-        builder: (context) => const DocumentScreen(),
-      );
+
     case PasscodeConfirmScreen.routeName:
       final String passcode = settings.arguments as String;
       return MaterialPageRoute<dynamic>(

@@ -1,6 +1,6 @@
+import 'package:cs214/constants/app_colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:cs214/constants/app_colors.dart';
 
 class ItemImage extends StatelessWidget {
   final int index;
@@ -28,6 +28,8 @@ class ItemImage extends StatelessWidget {
           child: Image.memory(
             image,
             fit: BoxFit.cover,
+            cacheWidth: 342,
+            cacheHeight: 342,
           ),
         ),
         Positioned(

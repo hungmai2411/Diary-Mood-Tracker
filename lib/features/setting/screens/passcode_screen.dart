@@ -2,6 +2,7 @@ import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
 import 'package:cs214/features/setting/screens/passcode_confirm_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PasscodeScreen extends StatefulWidget {

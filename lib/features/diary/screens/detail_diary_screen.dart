@@ -11,7 +11,6 @@ import 'package:cs214/features/diary/widgets/image_group.dart';
 import 'package:cs214/features/setting/models/setting.dart';
 import 'package:cs214/providers/setting_provider.dart';
 import 'package:cs214/widgets/box.dart';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
@@ -80,7 +79,7 @@ class DetailDiaryScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.backgroundColor,
         elevation: 0,
         leading: IconButton(
           onPressed: () => popScreen(context),

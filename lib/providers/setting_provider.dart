@@ -1,7 +1,6 @@
+import 'package:cs214/features/setting/models/setting.dart';
+import 'package:cs214/services/db_helpers.dart';
 import 'package:flutter/foundation.dart';
-
-import '../features/setting/models/setting.dart';
-import '../services/db_helpers.dart';
 
 class SettingProvider extends ChangeNotifier {
   Setting _setting = Setting();

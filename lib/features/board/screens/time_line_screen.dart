@@ -1,8 +1,8 @@
 import 'package:cs214/constants/app_styles.dart';
-import 'package:diary_app/features/diary/models/diary.dart';
-import 'package:diary_app/features/diary/screens/detail_diary_screen.dart';
-import 'package:diary_app/features/diary/widgets/item_diary.dart';
-import 'package:diary_app/features/diary/widgets/item_no_diary.dart';
+import 'package:cs214/features/diary/models/diary.dart';
+import 'package:cs214/features/diary/screens/detail_diary_screen.dart';
+import 'package:cs214/features/diary/widgets/item_diary.dart';
+import 'package:cs214/features/diary/widgets/item_no_diary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -66,7 +66,7 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
             onPressed: () {
               setState(() {
                 if (isSort) {
-                  diaries.sort((b, a) => a.createdAt.compareTo(b.createdAt));
+                  diaries.sort((a, b) => b.createdAt.compareTo(a.createdAt));
                 } else {
                   diaries.sort((a, b) => a.createdAt.compareTo(b.createdAt));
                 }

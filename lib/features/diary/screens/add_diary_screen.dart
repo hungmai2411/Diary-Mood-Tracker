@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:cs214/constants/app_assets.dart';
 import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
 import 'package:cs214/constants/utils.dart';
@@ -121,7 +122,7 @@ class _AddDiaryScreenState extends State<AddDiaryScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.backgroundColor,
         elevation: 0,
         leading: IconButton(
           onPressed: popScreen,

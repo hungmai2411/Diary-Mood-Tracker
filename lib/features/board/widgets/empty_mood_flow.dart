@@ -1,3 +1,4 @@
+import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
