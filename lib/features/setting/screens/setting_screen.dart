@@ -1,3 +1,4 @@
+import 'package:cs214/constants/app_styles.dart';
 import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
 import 'package:cs214/extensions/string_ext.dart';
@@ -120,11 +121,6 @@ class _SettingScreenState extends State<SettingScreen> {
       PasscodeScreen.routeName,
     );
   }
-
-  // backup() async {
-  //   GoogleDrive googleDrive = GoogleDrive();
-  //   //await googleDrive.uploadFileToGoogleDrive(file);
-  // }
 
   @override
   Widget build(BuildContext context) {
