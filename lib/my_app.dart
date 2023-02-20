@@ -1,6 +1,9 @@
 import 'package:cs214/constants/app_colors.dart';
+import 'package:cs214/features/board/screens/board_screen.dart';
+import 'package:cs214/features/category/screens/category_screen.dart';
 import 'package:cs214/features/diary/screens/add_diary_screen.dart';
 import 'package:cs214/features/diary/screens/diary_screen.dart';
+import 'package:cs214/features/setting/screens/setting_screen.dart';
 import 'package:cs214/providers/bottom_navigation_provider.dart';
 import 'package:cs214/providers/date_provider.dart';
 import 'package:cs214/providers/setting_provider.dart';
@@ -25,9 +28,9 @@ class _MyAppState extends State<MyApp> {
 
   List screens = [
     const DiaryScreen(),
-    // const CategoryScreen(),
-    // const BoardScreen(),
-    // const SettingScreen(),
+    const CategoryScreen(),
+    const BoardScreen(),
+    const SettingScreen(),
   ];
 
   navigateToAddDiaryScreen(DateTime dateTime) {
