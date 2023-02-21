@@ -88,7 +88,7 @@ class _SettingScreenState extends State<SettingScreen> {
         minute: value.minute,
         hour: value.hour,
         payload: 'hihi',
-        title: 'Diary Application',
+        title: 'Diary Soul',
         body: 'Don\'t forget to check in your mood today.\nHave a good night!',
       );
     }
