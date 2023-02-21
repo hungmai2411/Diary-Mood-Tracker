@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cs214">
    <application
-        android:label="cs214"
+        android:label="Diary Soul"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
