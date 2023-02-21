@@ -1,16 +1,30 @@
-# cs214
+## Diary Soul
 
-A new Flutter project.
+This application was inspired from Daily Bean and Little Corner.
 
-## Getting Started
+## Link APK
+- [https://drive.google.com/file/d/1WO8fSnu75AsYrYBxlMGca0oUW5mq2AU2/view?usp=sharing]
 
-This project is a starting point for a Flutter application.
+## Some Features
 
-A few resources to get you started if this is your first Flutter project:
+Write diary and update mood of the day
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Write category 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+View chart about mood monthly
+
+Support two languages(English - VietNamese)
+
+Can earns point from writing diary and then buy some icons mood
+
+Can switch light theme and dark theme
+
+## How to install
+
+Open terminal and run some code
+```sh
+https://github.com/hungmai2411/cs526
+pub get
+flutter gen-l10n
+```
+
