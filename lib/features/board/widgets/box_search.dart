@@ -24,7 +24,8 @@ class BoxSearch extends StatelessWidget {
       autocorrect: false,
       decoration: InputDecoration(
         hintText: 'Search',
-        hintStyle: AppStyles.regular,
+        hintStyle:
+            AppStyles.regular.copyWith(color: AppColors.textPrimaryColor),
         prefixIcon: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Icon(
@@ -43,7 +44,7 @@ class BoxSearch extends StatelessWidget {
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 10),
       ),
-      style: AppStyles.medium,
+      style: AppStyles.medium.copyWith(color: AppColors.textPrimaryColor),
       onChanged: (value) {
         onChanged(value);
       },

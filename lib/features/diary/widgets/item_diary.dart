@@ -93,7 +93,9 @@ class ItemDiary extends StatelessWidget {
                 children: [
                   Text(
                     controller.document.toPlainText(),
-                    style: AppStyles.regular,
+                    style: AppStyles.regular.copyWith(
+                      color: AppColors.textPrimaryColor,
+                    ),
                     overflow: TextOverflow.ellipsis,
                   ),
                   if (diary.images != null)
