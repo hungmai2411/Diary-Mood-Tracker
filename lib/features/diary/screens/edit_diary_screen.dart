@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:cs214/constants/app_assets.dart';
 import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
 import 'package:cs214/constants/global_variables.dart';
 import 'package:cs214/constants/utils.dart';
 import 'package:cs214/features/diary/models/diary.dart';
+import 'package:cs214/features/diary/screens/add_detail_diary_screen.dart';
 import 'package:cs214/features/diary/widgets/item_mood.dart';
 import 'package:cs214/features/diary/widgets/item_upload_group.dart';
 import 'package:cs214/features/setting/models/setting.dart';
@@ -15,6 +15,7 @@ import 'package:cs214/providers/setting_provider.dart';
 import 'package:cs214/widgets/box.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:googleapis/chat/v1.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_quill/flutter_quill.dart' as quill;
@@ -42,6 +43,13 @@ class _EditDiaryScreenState extends State<EditDiaryScreen> {
 
   popScreen() {
     Navigator.pop(context);
+  }
+
+  navigateToAddDetailDiaryScreen() async {
+    quill.QuillController result = await Navigator.of(context).pushNamed(
+      AddDetailDiaryScreen.routeName,
+      arguments: noteController,
+    ) as quill.QuillController;
   }
 
   addNote(BuildContext context) async {
@@ -199,31 +207,41 @@ class _EditDiaryScreenState extends State<EditDiaryScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Write about today',
-                    style: AppStyles.medium.copyWith(
-                      fontSize: 18,
-                      color: AppColors.textPrimaryColor,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        'Write about today',
+                        style: AppStyles.medium.copyWith(
+                          fontSize: 18,
+                          color: AppColors.textPrimaryColor,
+                        ),
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        onPressed: navigateToAddDetailDiaryScreen,
+                        icon: Icon(
+                          FontAwesomeIcons.expand,
+                          color: AppColors.textPrimaryColor,
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 5),
                   Divider(
                     color: AppColors.textSecondaryColor,
                   ),
-                  SizedBox(
-                    height: 150,
-                    child: quill.QuillEditor(
-                      scrollable: true,
-                      scrollController: ScrollController(),
-                      focusNode: editorFocusNode,
-                      padding: const EdgeInsets.all(0),
-                      autoFocus: true,
-                      readOnly: false,
-                      expands: false,
-                      controller: noteController,
-                      placeholder: AppLocalizations.of(context)!.writeSomething,
-                      customStyles: getDefaultStyles(context),
-                    ),
+                  quill.QuillEditor(
+                    minHeight: 150,
+                    scrollable: true,
+                    scrollController: ScrollController(),
+                    focusNode: editorFocusNode,
+                    padding: const EdgeInsets.all(0),
+                    autoFocus: true,
+                    readOnly: false,
+                    expands: false,
+                    controller: noteController,
+                    placeholder: AppLocalizations.of(context)!.writeSomething,
+                    customStyles: getDefaultStyles(context),
                   ),
                 ],
               ),

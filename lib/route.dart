@@ -1,9 +1,11 @@
+import 'package:cs214/features/board/screens/search_diary_screen.dart';
 import 'package:cs214/features/category/models/category.dart';
 import 'package:cs214/features/category/screens/category_screen.dart';
 import 'package:cs214/features/category/screens/create_category_screen.dart';
 import 'package:cs214/features/category/screens/detail_category_screen.dart';
 import 'package:cs214/features/category/screens/edit_category_screen.dart';
 import 'package:cs214/features/diary/models/diary.dart';
+import 'package:cs214/features/diary/screens/add_detail_diary_screen.dart';
 import 'package:cs214/features/diary/screens/add_diary_screen.dart';
 import 'package:cs214/features/diary/screens/detail_diary_screen.dart';
 import 'package:cs214/features/diary/screens/detail_image_screen.dart';
@@ -22,6 +24,7 @@ import 'package:cs214/features/setting/screens/theme_store_screen.dart';
 import 'package:cs214/my_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 
 final Map<String, WidgetBuilder> routes = {
   MyApp.routeName: (context) => const MyApp(),
@@ -35,6 +38,7 @@ final Map<String, WidgetBuilder> routes = {
   CreateCategoryScreen.routeName: (context) => const CreateCategoryScreen(),
   ThemeStoreScreen.routeName: (context) => const ThemeStoreScreen(),
   EnterPinScreen.routeName: (context) => const EnterPinScreen(),
+  SearchDiaryScreen.routeName: (context) => const SearchDiaryScreen(),
 };
 
 MaterialPageRoute<dynamic>? generateRoutes(RouteSettings settings) {
@@ -105,6 +109,14 @@ MaterialPageRoute<dynamic>? generateRoutes(RouteSettings settings) {
         settings: settings,
         builder: (context) => TimeLineScreen(
           diariesMonth: diaries,
+        ),
+      );
+    case AddDetailDiaryScreen.routeName:
+      final QuillController controller = settings.arguments as QuillController;
+      return MaterialPageRoute<dynamic>(
+        settings: settings,
+        builder: (context) => AddDetailDiaryScreen(
+          controller: controller,
         ),
       );
   }

@@ -25,6 +25,7 @@ class ItemDiary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     final SettingProvider settingProvider = context.read<SettingProvider>();
     final FocusNode editorFocusNode = FocusNode();
     Setting setting = settingProvider.setting;
@@ -90,17 +91,10 @@ class ItemDiary extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  quill.QuillEditor(
-                    scrollable: true,
-                    scrollController: ScrollController(),
-                    focusNode: editorFocusNode,
-                    padding: const EdgeInsets.all(0),
-                    autoFocus: false,
-                    readOnly: true,
-                    expands: false,
-                    controller: controller,
-                    showCursor: false,
-                    customStyles: getDefaultStyles(context),
+                  Text(
+                    controller.document.toPlainText(),
+                    style: AppStyles.regular,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   if (diary.images != null)
                     Wrap(

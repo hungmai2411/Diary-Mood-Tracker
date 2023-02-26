@@ -1,6 +1,7 @@
 import 'package:cs214/constants/app_styles.dart';
 import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
+import 'package:cs214/constants/utils.dart';
 import 'package:cs214/extensions/string_ext.dart';
 import 'package:cs214/features/setting/models/setting.dart';
 import 'package:cs214/features/setting/screens/language_screen.dart';
@@ -217,7 +218,12 @@ class _SettingScreenState extends State<SettingScreen> {
             const SizedBox(height: 15),
             // backup
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                showSnackBar(
+                  context,
+                  AppLocalizations.of(context).notDevelop,
+                );
+              },
               child: Box(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 15,
@@ -413,98 +419,130 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
             const SizedBox(height: 10),
             // privacy policy
-            Box(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 20,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.lock_outline,
-                    color: AppColors.textSecondColor,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    AppLocalizations.of(context)!.privacyPolicy,
-                    style: AppStyles.medium.copyWith(
-                      color: AppColors.textPrimaryColor,
+            GestureDetector(
+              onTap: () {
+                showSnackBar(
+                  context,
+                  AppLocalizations.of(context).notDevelop,
+                );
+              },
+              child: Box(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 20,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.lock_outline,
+                      color: AppColors.textSecondColor,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 8),
+                    Text(
+                      AppLocalizations.of(context)!.privacyPolicy,
+                      style: AppStyles.medium.copyWith(
+                        color: AppColors.textPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 15),
             // terms
-            Box(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 20,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.lock_outline,
-                    color: AppColors.textSecondColor,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    AppLocalizations.of(context)!.termsOfConditions,
-                    style: AppStyles.medium.copyWith(
-                      color: AppColors.textPrimaryColor,
+            GestureDetector(
+              onTap: () {
+                showSnackBar(
+                  context,
+                  AppLocalizations.of(context).notDevelop,
+                );
+              },
+              child: Box(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 20,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.lock_outline,
+                      color: AppColors.textSecondColor,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 8),
+                    Text(
+                      AppLocalizations.of(context)!.termsOfConditions,
+                      style: AppStyles.medium.copyWith(
+                        color: AppColors.textPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 15),
             // feedback
-            Box(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 20,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.question_mark_outlined,
-                    color: AppColors.textSecondColor,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    AppLocalizations.of(context)!.feedback,
-                    style: AppStyles.medium.copyWith(
-                      color: AppColors.textPrimaryColor,
+            GestureDetector(
+              onTap: () {
+                showSnackBar(
+                  context,
+                  AppLocalizations.of(context).notDevelop,
+                );
+              },
+              child: Box(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 20,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.question_mark_outlined,
+                      color: AppColors.textSecondColor,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 8),
+                    Text(
+                      AppLocalizations.of(context)!.feedback,
+                      style: AppStyles.medium.copyWith(
+                        color: AppColors.textPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 15),
             // about us
-            Box(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 20,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.error_outline,
-                    color: AppColors.textSecondColor,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    AppLocalizations.of(context)!.aboutUs,
-                    style: AppStyles.medium.copyWith(
-                      color: AppColors.textPrimaryColor,
+            GestureDetector(
+              onTap: () {
+                showSnackBar(
+                  context,
+                  AppLocalizations.of(context).notDevelop,
+                );
+              },
+              child: Box(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 20,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.error_outline,
+                      color: AppColors.textSecondColor,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 8),
+                    Text(
+                      AppLocalizations.of(context)!.aboutUs,
+                      style: AppStyles.medium.copyWith(
+                        color: AppColors.textPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

@@ -291,7 +291,12 @@ class _DiaryScreenState extends State<DiaryScreen> {
                 ? const ItemNoDiary()
                 : Column(
                     children: eventsMood[dateProvider.selectedDay]!
-                        .map((e) => ItemDiary(diary: e))
+                        .map(
+                          (e) => GestureDetector(
+                            onTap: () => navigateToDetailDiaryScreen(e),
+                            child: ItemDiary(diary: e),
+                          ),
+                        )
                         .toList(),
                   ),
           ),

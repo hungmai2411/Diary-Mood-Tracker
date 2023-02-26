@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:cs214/constants/app_assets.dart';
 import 'package:cs214/constants/app_colors.dart';
 import 'package:cs214/constants/app_styles.dart';
 import 'package:cs214/constants/utils.dart';
 import 'package:cs214/features/diary/models/diary.dart';
+import 'package:cs214/features/diary/screens/add_detail_diary_screen.dart';
 import 'package:cs214/features/diary/widgets/item_mood.dart';
 import 'package:cs214/features/diary/widgets/item_upload_group.dart';
 import 'package:cs214/features/diary/widgets/sucess_dialog.dart';
@@ -45,6 +45,13 @@ class _AddDiaryScreenState extends State<AddDiaryScreen> {
 
   popScreen() {
     Navigator.pop(context);
+  }
+
+  navigateToAddDetailDiaryScreen() async {
+    quill.QuillController result = await Navigator.of(context).pushNamed(
+      AddDetailDiaryScreen.routeName,
+      arguments: noteController,
+    ) as quill.QuillController;
   }
 
   @override
@@ -218,13 +225,20 @@ class _AddDiaryScreenState extends State<AddDiaryScreen> {
                   Row(
                     children: [
                       Text(
-                        AppLocalizations.of(context)!.writeAboutToday,
+                        AppLocalizations.of(context).writeAboutToday,
                         style: AppStyles.medium.copyWith(
                           fontSize: 18,
                           color: AppColors.textPrimaryColor,
                         ),
                       ),
                       const Spacer(),
+                      IconButton(
+                        onPressed: navigateToAddDetailDiaryScreen,
+                        icon: Icon(
+                          FontAwesomeIcons.expand,
+                          color: AppColors.textPrimaryColor,
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 5),

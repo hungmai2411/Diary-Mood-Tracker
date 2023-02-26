@@ -1,4 +1,5 @@
 import 'package:cs214/constants/app_styles.dart';
+import 'package:cs214/features/board/screens/search_diary_screen.dart';
 import 'package:cs214/features/diary/models/diary.dart';
 import 'package:cs214/features/diary/screens/detail_diary_screen.dart';
 import 'package:cs214/features/diary/widgets/item_diary.dart';
@@ -38,6 +39,13 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
     );
   }
 
+  navigateToSearchDiaryScreen() {
+    Navigator.pushNamed(
+      context,
+      SearchDiaryScreen.routeName,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +60,7 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
         ),
         automaticallyImplyLeading: false,
         title: Text(
-          AppLocalizations.of(context)!.timeLineTab,
+          AppLocalizations.of(context).timeLineTab,
           style: AppStyles.medium.copyWith(
             fontSize: 18,
             color: AppColors.textPrimaryColor,
@@ -62,6 +70,13 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
         backgroundColor: AppColors.appbarColor,
         elevation: 0,
         actions: [
+          GestureDetector(
+            onTap: navigateToSearchDiaryScreen,
+            child: Icon(
+              Icons.search,
+              color: AppColors.textPrimaryColor,
+            ),
+          ),
           IconButton(
             onPressed: () {
               setState(() {

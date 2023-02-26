@@ -78,6 +78,7 @@ DefaultStyles getDefaultStyles(BuildContext context) {
         height: 1.15,
         fontWeight: FontWeight.w300,
         decoration: TextDecoration.none,
+        overflow: TextOverflow.ellipsis,
       ),
       const Tuple2(16, 0),
       const Tuple2(0, 0),
@@ -92,6 +93,7 @@ DefaultStyles getDefaultStyles(BuildContext context) {
         height: 1.15,
         fontWeight: FontWeight.normal,
         decoration: TextDecoration.none,
+        overflow: TextOverflow.ellipsis,
       ),
       const Tuple2(8, 0),
       const Tuple2(0, 0),
@@ -106,6 +108,7 @@ DefaultStyles getDefaultStyles(BuildContext context) {
         height: 1.25,
         fontWeight: FontWeight.w500,
         decoration: TextDecoration.none,
+        overflow: TextOverflow.ellipsis,
       ),
       const Tuple2(8, 0),
       const Tuple2(0, 0),
@@ -116,6 +119,7 @@ DefaultStyles getDefaultStyles(BuildContext context) {
         color: background == 'Light mode'
             ? const Color(0xFF1D1E2C)
             : const Color(0xFFE2E2E2),
+        overflow: TextOverflow.ellipsis,
       ),
       const Tuple2(0, 0),
       const Tuple2(0, 0),
@@ -126,36 +130,42 @@ DefaultStyles getDefaultStyles(BuildContext context) {
       color: background == 'Light mode'
           ? const Color(0xFF1D1E2C)
           : const Color(0xFFE2E2E2),
+      overflow: TextOverflow.ellipsis,
     ),
     italic: TextStyle(
       fontStyle: FontStyle.italic,
       color: background == 'Light mode'
           ? const Color(0xFF1D1E2C)
           : const Color(0xFFE2E2E2),
+      overflow: TextOverflow.ellipsis,
     ),
     small: TextStyle(
       fontSize: 12,
       color: background == 'Light mode'
           ? const Color(0xFF1D1E2C)
           : const Color(0xFFE2E2E2),
+      overflow: TextOverflow.ellipsis,
     ),
     underline: TextStyle(
       decoration: TextDecoration.underline,
       color: background == 'Light mode'
           ? const Color(0xFF1D1E2C)
           : const Color(0xFFE2E2E2),
+      overflow: TextOverflow.ellipsis,
     ),
     strikeThrough: TextStyle(
       decoration: TextDecoration.lineThrough,
       color: background == 'Light mode'
           ? const Color(0xFF1D1E2C)
           : const Color(0xFFE2E2E2),
+      overflow: TextOverflow.ellipsis,
     ),
     inlineCode: InlineCodeStyle(
       backgroundColor: Colors.grey.shade100,
       radius: const Radius.circular(3),
       style: AppStyles.regular,
       header1: AppStyles.regular.copyWith(
+        overflow: TextOverflow.ellipsis,
         fontSize: 32,
         fontWeight: FontWeight.w300,
         color: background == 'Light mode'
@@ -167,6 +177,7 @@ DefaultStyles getDefaultStyles(BuildContext context) {
         color: background == 'Light mode'
             ? const Color(0xFF1D1E2C)
             : const Color(0xFFE2E2E2),
+        overflow: TextOverflow.ellipsis,
       ),
       header3: AppStyles.regular.copyWith(
         fontSize: 18,
@@ -174,6 +185,7 @@ DefaultStyles getDefaultStyles(BuildContext context) {
         color: background == 'Light mode'
             ? const Color(0xFF1D1E2C)
             : const Color(0xFFE2E2E2),
+        overflow: TextOverflow.ellipsis,
       ),
     ),
     link: TextStyle(
@@ -181,6 +193,7 @@ DefaultStyles getDefaultStyles(BuildContext context) {
           ? const Color(0xFF1D1E2C)
           : const Color(0xFFE2E2E2),
       decoration: TextDecoration.underline,
+      overflow: TextOverflow.ellipsis,
     ),
     placeHolder: DefaultTextBlockStyle(
       AppStyles.regular.copyWith(
@@ -188,6 +201,7 @@ DefaultStyles getDefaultStyles(BuildContext context) {
         color: background == 'Light mode'
             ? const Color(0xFF1D1E2C)
             : const Color(0xFFE2E2E2),
+        overflow: TextOverflow.ellipsis,
       ),
       const Tuple2(0, 0),
       const Tuple2(0, 0),
@@ -198,6 +212,7 @@ DefaultStyles getDefaultStyles(BuildContext context) {
         color: background == 'Light mode'
             ? const Color(0xFF1D1E2C)
             : const Color(0xFFE2E2E2),
+        overflow: TextOverflow.ellipsis,
       ),
       baseSpacing,
       const Tuple2(0, 6),
@@ -209,6 +224,7 @@ DefaultStyles getDefaultStyles(BuildContext context) {
         color: background == 'Light mode'
             ? const Color(0xFF1D1E2C)
             : const Color(0xFFE2E2E2),
+        overflow: TextOverflow.ellipsis,
       ),
       baseSpacing,
       const Tuple2(6, 2),
@@ -224,6 +240,7 @@ DefaultStyles getDefaultStyles(BuildContext context) {
         //fontFamily: fontFamily,
         fontSize: 13,
         height: 1.15,
+        overflow: TextOverflow.ellipsis,
       ),
       baseSpacing,
       const Tuple2(0, 0),
@@ -233,28 +250,47 @@ DefaultStyles getDefaultStyles(BuildContext context) {
       ),
     ),
     indent: DefaultTextBlockStyle(
-        AppStyles.regular, baseSpacing, const Tuple2(0, 6), null),
+      AppStyles.regular.copyWith(
+        overflow: TextOverflow.ellipsis,
+      ),
+      baseSpacing,
+      const Tuple2(0, 6),
+      null,
+    ),
     align: DefaultTextBlockStyle(
-        AppStyles.regular, const Tuple2(0, 0), const Tuple2(0, 0), null),
+        AppStyles.regular.copyWith(
+          overflow: TextOverflow.ellipsis,
+        ),
+        const Tuple2(0, 0),
+        const Tuple2(0, 0),
+        null),
     leading: DefaultTextBlockStyle(
-        AppStyles.regular, const Tuple2(0, 0), const Tuple2(0, 0), null),
+        AppStyles.regular.copyWith(
+          overflow: TextOverflow.ellipsis,
+        ),
+        const Tuple2(0, 0),
+        const Tuple2(0, 0),
+        null),
     sizeSmall: TextStyle(
       fontSize: 10,
       color: background == 'Light mode'
           ? const Color(0xFF1D1E2C)
           : const Color(0xFFE2E2E2),
+      overflow: TextOverflow.ellipsis,
     ),
     sizeLarge: TextStyle(
       fontSize: 18,
       color: background == 'Light mode'
           ? const Color(0xFF1D1E2C)
           : const Color(0xFFE2E2E2),
+      overflow: TextOverflow.ellipsis,
     ),
     sizeHuge: TextStyle(
       fontSize: 22,
       color: background == 'Light mode'
           ? const Color(0xFF1D1E2C)
           : const Color(0xFFE2E2E2),
+      overflow: TextOverflow.ellipsis,
     ),
   );
 }

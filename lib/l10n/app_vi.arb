@@ -71,6 +71,7 @@
     "undone":"Hành động này không thể quay lại",
     "buySuccess":"Mua thành công",
     "owned":"Đã sở hữu",
+    "notDevelop":"Chúng tôi sẽ phát triển trong tương lai",
     "buyFailed":"Bạn cần thêm {numCoin} xu để mua giao diện",
     "@buyFailed": {
         "placeholders":{

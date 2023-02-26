@@ -71,6 +71,7 @@
     "owned":"Owned",
     "background":"Background",
     "buySuccess":"Buy successfully",
+    "notDevelop":"We will develop in the future",
     "buyFailed":"You need {numCoin} more coin to purchase this theme.",
     "@buyFailed": {
         "placeholders":{
