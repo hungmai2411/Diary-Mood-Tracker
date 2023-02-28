@@ -3,7 +3,7 @@
 This application was inspired from Daily Bean and Little Corner.
 
 ## Link APK
-- [https://drive.google.com/file/d/1WO8fSnu75AsYrYBxlMGca0oUW5mq2AU2/view?usp=sharing]
+- [https://drive.google.com/file/d/1rLrugOKiq-U6iaAATdCUMtK6Tk7n0eOw/view?usp=sharing]
 
 ## Some Features
 
